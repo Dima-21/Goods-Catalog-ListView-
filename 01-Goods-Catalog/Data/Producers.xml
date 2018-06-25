@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <producer id="0" name="Все производители" cid="0" />
+  <producer id="1" name="Samsung" cid="1" />
+  <producer id="2" name="Asus" cid="2" />
+  <producer id="3" name="Meizu" cid="1" />
+  <producer id="4" name="Lenovo" cid="2" />
+</root>

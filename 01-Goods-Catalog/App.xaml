@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:_01_Goods_Catalog"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DictionaryStyle.xaml" />
+                <ResourceDictionary Source="DictionaryProvider.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

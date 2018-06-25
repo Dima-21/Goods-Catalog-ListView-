@@ -5,8 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_01_Goods_Catalog"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-       
-    </Grid>
+        Title="Goods Catalog" MinHeight="650" MinWidth="800"
+        Height="650" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Style="{StaticResource font1}" >
+            <MenuItem Header="Управление категориями">
+                <MenuItem Header="Добавление категории"/>
+                <MenuItem Header="Удаление категории"/>
+            </MenuItem>
+            <MenuItem Header="Управление производителями">
+                <MenuItem Header="Добавление производителя"/>
+                <MenuItem Header="Удаление производителя"/>
+            </MenuItem>
+            <MenuItem Header="Управление товарами">
+                <MenuItem Header="Добавление товара"/>
+                <MenuItem Header="Удаление товара"/>
+                <MenuItem Header="Изменение товара"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid DockPanel.Dock="Top"  Margin="10 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Image/logo.png" Grid.Row="0" Grid.Column="0" Width="220" />
+            <Label Content="Автоматизированый каталог товаров" Grid.Row="0" Grid.Column="1" 
+                   HorizontalAlignment="Center" Padding="0 25"
+                   Style="{StaticResource font3}" />
+        </Grid>
+
+        <Grid DockPanel.Dock="Top" Margin="10" Style="{StaticResource font2}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="listCategory" Grid.Column="0" Margin="10" Foreground="Red"  SelectedIndex="0" Padding="10 5 5 5"
+                      ItemsSource="{Binding Source={StaticResource categoryProvider}, XPath=category}" DisplayMemberPath="@name"/>
+            <ComboBox x:Name="listProducer" Grid.Column="1" Margin="10" Foreground="Blue"  SelectedIndex="0" Padding="10 5 5 5"
+                      ItemsSource="{Binding Source={StaticResource producerProvider}, XPath=producer}" DisplayMemberPath="@name"/>
+            <Button x:Name="filter" Content="Фильтр" Grid.Column="2" Margin="10" Padding="10 5 5 5"/>
+        </Grid>
+
+        <Grid DockPanel.Dock="Bottom">
+            <Button x:Name="order" HorizontalAlignment="Center" Content="Заказать товар" Style="{StaticResource font2}" Margin="0 5 "/>
+        </Grid>
+
+        <Grid DockPanel.Dock="Bottom" Margin="5 5 0 0">
+            <WrapPanel Margin="10">
+                <Label Style="{StaticResource font2}" Foreground="DarkCyan" Content="Наименование:"/>
+                <TextBox x:Name="name" Style="{StaticResource font2}" MinWidth="40"/>
+                <Label Style="{StaticResource font2}" Foreground="DarkCyan" Content="Производитель:"/>
+                <TextBox x:Name="producer" Style="{StaticResource font2}" MinWidth="40"/>
+                <Label Style="{StaticResource font2}" Foreground="DarkCyan" Content="Цена:"/>
+                <TextBox x:Name="price" Style="{StaticResource font2}" MinWidth="40"/>
+                <Label Style="{StaticResource font2}" Foreground="DarkCyan" Content="Количество:"/>
+                <TextBox x:Name="num" Style="{StaticResource font2}" MinWidth="40"/>
+            </WrapPanel>
+        </Grid>
+
+        <Grid x:Name="mainBox">
+            <ListView x:Name="productList" Margin="5 2" Style="{StaticResource font2}" 
+                      ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Категория" 
+                                        DisplayMemberBinding="{Binding XPath=@category}"/>
+                        <GridViewColumn Header="Наименование" 
+                                        DisplayMemberBinding="{Binding XPath=@name}"/>
+                        <GridViewColumn Header="Производитель" 
+                                        DisplayMemberBinding="{Binding XPath=@producer}"/>
+                            <GridViewColumn Header="Цена" 
+                                        DisplayMemberBinding="{Binding XPath=@category}"/>
+                        <GridViewColumn Header="Количество" 
+                                        DisplayMemberBinding="{Binding XPath=@price}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <DataGrid Margin="5 2"  ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Модель" DisplayMemberBinding="{Binding XPath=@category}" Width="90" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
 </Window>
