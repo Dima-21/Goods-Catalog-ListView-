@@ -24,5 +24,10 @@ namespace _01_Goods_Catalog
         {
             InitializeComponent();
         }
+
+        private void filter_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

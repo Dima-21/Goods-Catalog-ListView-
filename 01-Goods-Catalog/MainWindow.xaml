@@ -45,7 +45,7 @@
                       ItemsSource="{Binding Source={StaticResource categoryProvider}, XPath=category}" DisplayMemberPath="@name"/>
             <ComboBox x:Name="listProducer" Grid.Column="1" Margin="10" Foreground="Blue"  SelectedIndex="0" Padding="10 5 5 5"
                       ItemsSource="{Binding Source={StaticResource producerProvider}, XPath=producer}" DisplayMemberPath="@name"/>
-            <Button x:Name="filter" Content="Фильтр" Grid.Column="2" Margin="10" Padding="10 5 5 5"/>
+            <Button x:Name="filter" Content="Фильтр" Grid.Column="2" Margin="10" Padding="10 5 5 5" Click="filter_Click"/>
         </Grid>
 
         <Grid DockPanel.Dock="Bottom">
@@ -76,18 +76,13 @@
                                         DisplayMemberBinding="{Binding XPath=@name}"/>
                         <GridViewColumn Header="Производитель" 
                                         DisplayMemberBinding="{Binding XPath=@producer}"/>
-                            <GridViewColumn Header="Цена" 
-                                        DisplayMemberBinding="{Binding XPath=@category}"/>
+                        <GridViewColumn Header="Цена" 
+                                        DisplayMemberBinding="{Binding XPath=@price}"/>
                         <GridViewColumn Header="Количество" 
                                         DisplayMemberBinding="{Binding XPath=@price}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <DataGrid Margin="5 2"  ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Модель" DisplayMemberBinding="{Binding XPath=@category}" Width="90" />
-                </DataGrid.Columns>
-            </DataGrid>
         </Grid>
     </DockPanel>
 </Window>

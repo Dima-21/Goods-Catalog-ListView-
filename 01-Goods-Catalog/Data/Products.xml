@@ -4,8 +4,8 @@
   <product id="2" name="J3" price="3600" num="50" pid="1" cid="1" producer="Samsung" category="Смартфоны"/>
   <product id="3" name="Unknown" price="9600" num="50" pid="2" cid="1" producer="Asus" category="Смартфоны"/>
   <product id="4" name="Unknown" price="1200" num="50" pid="2" cid="1" producer="Asus" category="Смартфоны"/>
-  <product id="5" name="M5" price="" num="4299" pid="3" cid="2" producer="Meizu" category="Ноутбуки"/>
-  <product id="6" name="M3" price="" num="4399" pid="3" cid="2" producer="Meizu" category="Ноутбуки"/>
-  <product id="7" name="5500" price="" num="12300" pid="4" cid="2" producer="Lenovo" category="Ноутбуки"/>
-  <product id="8" name="4500" price="" num="19299" pid="4" cid="2" producer="Lenovo" category="Ноутбуки"/>
+  <product id="5" name="M5" price="4500" num="4299" pid="3" cid="2" producer="Meizu" category="Ноутбуки"/>
+  <product id="6" name="M3" price="6400" num="4399" pid="3" cid="2" producer="Meizu" category="Ноутбуки"/>
+  <product id="7" name="5500" price="12030" num="12300" pid="4" cid="2" producer="Lenovo" category="Ноутбуки"/>
+  <product id="8" name="4500" price="16300" num="19299" pid="4" cid="2" producer="Lenovo" category="Ноутбуки"/>
 </root>
