@@ -30,7 +30,7 @@ namespace _01_Goods_Catalog
             InitializeComponent();
             Binding b = new Binding();
             for (int i = 1; i <= num; i++)
-            {
+            { 
                 nums.Items.Add(i);
             }
             b.Source = Int32.Parse(nums.SelectedItem.ToString()) * Int32.Parse(p);
