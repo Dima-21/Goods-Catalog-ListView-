@@ -20,6 +20,6 @@
         <Setter Property="Padding" Value="25 5"/>
     </Style>
     <Style TargetType="TextBox" BasedOn="{StaticResource font2}">
-        <Setter Property="IsReadOnly" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
     </Style>
 </ResourceDictionary>

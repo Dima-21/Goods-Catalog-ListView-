@@ -37,6 +37,7 @@ namespace _01_Goods_Catalog
                 var root = doc.Element("root");
                 var categories = root.Elements("category");
                 int k = categories.Count();
+              
                 XElement newElem = new XElement("category", 
                     new XAttribute("id", k),
                     new XAttribute("name", name));

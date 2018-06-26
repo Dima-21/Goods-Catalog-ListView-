@@ -48,7 +48,22 @@ namespace _01_Goods_Catalog
 
         private void order_Click(object sender, RoutedEventArgs e)
         {
-
+            if (name.Text == String.Empty)
+            {
+                MessageBox.Show("Вы не выбрали товар из списка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                TicketWindow win = new TicketWindow(name.Text, Int32.Parse(num.Text), price.Text);
+                if (win.ShowDialog() == true)
+                {
+                    //XmlDataProvider xdp = (XmlDataProvider)FindResource("categoryProvider");
+                    //Binding b = new Binding();
+                    //b.Source = xdp;
+                    //b.XPath = "category";
+                    //listCategory.SetBinding(ComboBox.ItemsSourceProperty, b);
+                }
+            }
         }
 
         private void addcategory_Click(object sender, RoutedEventArgs e)
