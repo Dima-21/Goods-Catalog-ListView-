@@ -16,4 +16,10 @@
         <Setter Property="Control.FontSize" Value="26"/>
         <Setter Property="Control.Foreground" Value="MediumOrchid"/>
     </Style>
+    <Style TargetType="GridViewColumnHeader" BasedOn="{StaticResource baseFont}">
+        <Setter Property="Padding" Value="25 5"/>
+    </Style>
+    <Style TargetType="TextBox" BasedOn="{StaticResource font2}">
+        <Setter Property="IsReadOnly" Value="False"/>
+    </Style>
 </ResourceDictionary>

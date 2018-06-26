@@ -10,7 +10,8 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top" Style="{StaticResource font1}" >
             <MenuItem Header="Управление категориями">
-                <MenuItem Header="Добавление категории"/>
+                <MenuItem x:Name="addCategory" Header="Добавление категории" 
+                          Click="addcategory_Click"/>
                 <MenuItem Header="Удаление категории"/>
             </MenuItem>
             <MenuItem Header="Управление производителями">
@@ -41,27 +42,31 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ComboBox x:Name="listCategory" Grid.Column="0" Margin="10" Foreground="Red"  SelectedIndex="0" Padding="10 5 5 5"
+            <ComboBox x:Name="listCategory" Grid.Column="0" Margin="10 5" Foreground="Red"  SelectedIndex="0" Padding="10 5 5 5"
                       ItemsSource="{Binding Source={StaticResource categoryProvider}, XPath=category}" DisplayMemberPath="@name"/>
-            <ComboBox x:Name="listProducer" Grid.Column="1" Margin="10" Foreground="Blue"  SelectedIndex="0" Padding="10 5 5 5"
+            <ComboBox x:Name="listProducer" Grid.Column="1" Margin="10 5" Foreground="Blue"  SelectedIndex="0" Padding="10 5 5 5"
                       ItemsSource="{Binding Source={StaticResource producerProvider}, XPath=producer}" DisplayMemberPath="@name"/>
-            <Button x:Name="filter" Content="Фильтр" Grid.Column="2" Margin="10" Padding="10 5 5 5" Click="filter_Click"/>
+            <Button x:Name="filter" Content="Фильтр" Grid.Column="2" Margin="10 5" Padding="10 5 5 5" Click="filter_Click"/>
         </Grid>
 
         <Grid DockPanel.Dock="Bottom">
-            <Button x:Name="order" HorizontalAlignment="Center" Content="Заказать товар" Style="{StaticResource font2}" Margin="0 5 "/>
+            <Button x:Name="order" HorizontalAlignment="Center" Content="Заказать товар" Style="{StaticResource font2}" Margin="0 5 " Click="order_Click"/>
         </Grid>
 
         <Grid DockPanel.Dock="Bottom" Margin="5 5 0 0">
-            <WrapPanel Margin="10">
+            <WrapPanel DataContext="{Binding ElementName=productList, Path=SelectedItem}">
                 <Label Style="{StaticResource font2}" Foreground="DarkCyan" Content="Наименование:"/>
-                <TextBox x:Name="name" Style="{StaticResource font2}" MinWidth="40"/>
+                <TextBox x:Name="name" MinWidth="40" 
+                         Text="{Binding XPath=@name}"/>
                 <Label Style="{StaticResource font2}" Foreground="DarkCyan" Content="Производитель:"/>
-                <TextBox x:Name="producer" Style="{StaticResource font2}" MinWidth="40"/>
+                <TextBox x:Name="producer" MinWidth="40"
+                         Text="{Binding XPath=@producer}"/>
                 <Label Style="{StaticResource font2}" Foreground="DarkCyan" Content="Цена:"/>
-                <TextBox x:Name="price" Style="{StaticResource font2}" MinWidth="40"/>
+                <TextBox x:Name="price" MinWidth="40"
+                         Text="{Binding XPath=@price}"/>
                 <Label Style="{StaticResource font2}" Foreground="DarkCyan" Content="Количество:"/>
-                <TextBox x:Name="num" Style="{StaticResource font2}" MinWidth="40"/>
+                <TextBox x:Name="num" MinWidth="40"
+                         Text="{Binding XPath=@num}"/>
             </WrapPanel>
         </Grid>
 
@@ -79,7 +84,7 @@
                         <GridViewColumn Header="Цена" 
                                         DisplayMemberBinding="{Binding XPath=@price}"/>
                         <GridViewColumn Header="Количество" 
-                                        DisplayMemberBinding="{Binding XPath=@price}"/>
+                                        DisplayMemberBinding="{Binding XPath=@num}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
