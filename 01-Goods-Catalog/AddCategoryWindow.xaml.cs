@@ -18,9 +18,9 @@ namespace _01_Goods_Catalog
     /// <summary>
     /// Interaction logic for AddWindow.xaml
     /// </summary>
-    public partial class AddWindow : Window
+    public partial class AddCategoryWindow : Window
     {
-        public AddWindow()
+        public AddCategoryWindow()
         {
             InitializeComponent();
         }

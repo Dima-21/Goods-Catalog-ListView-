@@ -22,6 +22,7 @@ namespace _01_Goods_Catalog
     {
         public MainWindow()
         {
+           
             InitializeComponent();
         }
 
@@ -68,7 +69,7 @@ namespace _01_Goods_Catalog
 
         private void addcategory_Click(object sender, RoutedEventArgs e)
         {
-            AddWindow win = new AddWindow();
+            AddCategoryWindow win = new AddCategoryWindow();
             if(win.ShowDialog() == true)
             {
                 XmlDataProvider xdp = (XmlDataProvider)FindResource("categoryProvider");
@@ -78,6 +79,20 @@ namespace _01_Goods_Catalog
                 listCategory.SetBinding(ComboBox.ItemsSourceProperty, b);
             }
             
+        }
+
+        private void deleteCategory_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteCategoryWindow delwin = new DeleteCategoryWindow();
+            if(delwin.ShowDialog() == true)
+            {}
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AddProducerWindow addwin = new AddProducerWindow();
+            if (addwin.ShowDialog() == true)
+            {}
         }
     }
 }

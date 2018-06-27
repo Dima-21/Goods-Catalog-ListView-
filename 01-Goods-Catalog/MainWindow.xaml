@@ -12,10 +12,11 @@
             <MenuItem Header="Управление категориями">
                 <MenuItem x:Name="addCategory" Header="Добавление категории" 
                           Click="addcategory_Click"/>
-                <MenuItem Header="Удаление категории"/>
+                <MenuItem x:Name="deleteCategory" Header="Удаление категории"
+                          Click="deleteCategory_Click"/>
             </MenuItem>
             <MenuItem Header="Управление производителями">
-                <MenuItem Header="Добавление производителя"/>
+                <MenuItem Header="Добавление производителя" Click="MenuItem_Click"/>
                 <MenuItem Header="Удаление производителя"/>
             </MenuItem>
             <MenuItem Header="Управление товарами">
