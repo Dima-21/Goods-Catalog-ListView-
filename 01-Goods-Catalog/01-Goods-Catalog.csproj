@@ -70,32 +70,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddProducerWindow.xaml.cs">
+    <Compile Include="Windows\DeleteProducerWindow.xaml.cs">
+      <DependentUpon>DeleteProducerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddProducerWindow.xaml.cs">
       <DependentUpon>AddProducerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DeleteCategoryWindow.xaml.cs">
+    <Compile Include="Windows\DeleteCategoryWindow.xaml.cs">
       <DependentUpon>DeleteCategoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TicketWindow.xaml.cs">
+    <Compile Include="Windows\TicketWindow.xaml.cs">
       <DependentUpon>TicketWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddProducerWindow.xaml">
+    <Page Include="Windows\DeleteProducerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddCategoryWindow.xaml">
+    <Page Include="Windows\AddProducerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeleteCategoryWindow.xaml">
+    <Page Include="Windows\AddCategoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DictionaryProvider.xaml">
+    <Page Include="Windows\DeleteCategoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DictionaryStyle.xaml">
+    <Page Include="Dictionary\DictionaryProvider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionary\DictionaryStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,7 +110,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddCategoryWindow.xaml.cs">
+    <Compile Include="Windows\AddCategoryWindow.xaml.cs">
       <DependentUpon>AddCategoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -114,7 +121,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TicketWindow.xaml">
+    <Page Include="Windows\TicketWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

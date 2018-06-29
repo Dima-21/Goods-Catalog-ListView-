@@ -1,0 +1,18 @@
+﻿<Window x:Class="_01_Goods_Catalog.DeleteProducerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_01_Goods_Catalog"
+        mc:Ignorable="d"
+        Title="Удаление производителя" Height="300" Width="300">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Label Content="Удаление производителя" />
+        <ComboBox x:Name="listProducers" Foreground="Red" 
+                  ItemsSource="{Binding Source={StaticResource producerProvider},
+                                XPath=producer}" DisplayMemberPath="@name"
+                                SelectedIndex="0" FontSize="18"/>
+        <Button x:Name="delButton" Content="Удалить"
+                Click="delButton_Click" Margin="0 15" FontSize="18"/>
+    </StackPanel>
+</Window>

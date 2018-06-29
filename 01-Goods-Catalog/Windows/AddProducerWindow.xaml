@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_01_Goods_Catalog"
         mc:Ignorable="d"
-        Title="AddProducerWindow" Height="300" Width="300">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label Content="Добавление производителя" Foreground="Purple" />
-        <ComboBox x:Name="listCategory" 
+        Title="AddProducerWindow" Height="300" Width="320">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0">
+        <Label Content="Добавление производителя" Foreground="Purple" 
+               Style="{StaticResource font3}" FontSize="20"/>
+        <ComboBox x:Name="listCategory" Style="{StaticResource font2}" Foreground="DarkCyan"
                   ItemsSource="{Binding Source={StaticResource categoryProvider}, XPath=category}"
                   DisplayMemberPath="@name" SelectedIndex="0" Margin="0 15"/>
         <TextBox x:Name="pName" TextAlignment="Center"

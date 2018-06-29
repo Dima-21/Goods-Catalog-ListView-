@@ -3,11 +3,11 @@
                     xmlns:local="clr-namespace:_01_Goods_Catalog">
     
     <XmlDataProvider x:Key="categoryProvider" 
-                     Source="Data/Categories.xml" XPath="root"/>
+                     Source="../Data/Categories.xml" XPath="root"/>
 
     <XmlDataProvider x:Key="producerProvider" 
-                     Source="Data/Producers.xml" XPath="root"/>
+                     Source="../Data/Producers.xml" XPath="root"/>
 
     <XmlDataProvider x:Key="productProvider" 
-                     Source="Data/Products.xml" XPath="root"/>
+                     Source="../Data/Products.xml" XPath="root"/>
 </ResourceDictionary>

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <producer id="0" name="Все производители" cid="0" />
+  <producer id="1" name="Samsung" cid="1" />
   <producer id="2" name="Asus" cid="2" />
   <producer id="3" name="Meizu" cid="1" />
+  <producer id="4" name="Lemovo" cid="2" />
   <producer id="5" name="Bluedio" cid="3" />
-  <producer id="6" name="Fdsfds" cid="3" />
-  <producer id="7" name="dsf" cid="3" />
-  <producer id="8" name="dsfsdfs" cid="2" />
 </root>

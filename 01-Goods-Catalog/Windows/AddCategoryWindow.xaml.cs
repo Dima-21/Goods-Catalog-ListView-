@@ -46,6 +46,7 @@ namespace _01_Goods_Catalog
                 MessageBox.Show("Категория успешно добавлена", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.DialogResult = true;
             }
+          
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,27 +58,15 @@ namespace _01_Goods_Catalog
             {
                 TicketWindow win = new TicketWindow(name.Text, Int32.Parse(num.Text), price.Text);
                 if (win.ShowDialog() == true)
-                {
-                    //XmlDataProvider xdp = (XmlDataProvider)FindResource("categoryProvider");
-                    //Binding b = new Binding();
-                    //b.Source = xdp;
-                    //b.XPath = "category";
-                    //listCategory.SetBinding(ComboBox.ItemsSourceProperty, b);
-                }
+                {}
             }
         }
 
-        private void addcategory_Click(object sender, RoutedEventArgs e)
+        private void addCategory_Click(object sender, RoutedEventArgs e)
         {
             AddCategoryWindow win = new AddCategoryWindow();
             if(win.ShowDialog() == true)
-            {
-                XmlDataProvider xdp = (XmlDataProvider)FindResource("categoryProvider");
-                Binding b = new Binding();
-                b.Source = xdp;
-                b.XPath = "category";
-                listCategory.SetBinding(ComboBox.ItemsSourceProperty, b);
-            }
+            { }
             
         }
 
@@ -85,14 +74,21 @@ namespace _01_Goods_Catalog
         {
             DeleteCategoryWindow delwin = new DeleteCategoryWindow();
             if(delwin.ShowDialog() == true)
-            {}
+            { }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void addProducer_Click(object sender, RoutedEventArgs e)
         {
             AddProducerWindow addwin = new AddProducerWindow();
             if (addwin.ShowDialog() == true)
-            {}
+            { }
+        }
+
+        private void deleteProducer_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteProducerWindow delwin = new DeleteProducerWindow();
+            if (delwin.ShowDialog() == true)
+            { }
         }
     }
 }

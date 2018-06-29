@@ -27,22 +27,27 @@
             <Label Grid.Column="0" Grid.Row="1" Content="Количество:" Margin="2 10" Foreground="Crimson"/>
             <ComboBox x:Name="nums" Grid.Column="1" Grid.Row="1" 
                       Height="30" Margin="2 0" HorizontalAlignment="Left" 
-                      FontSize="15" SelectedIndex="0" Padding="5 5 "/>
+                      FontSize="15" Padding="5 5 " SelectionChanged="nums_SelectionChanged" />
         </Grid>
 
         <Grid Style="{StaticResource font2}" DataContext="{Binding ElementName=nums, Path=SelectedItem}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Grid.Row="2" Content="Сумма:" Margin="2 40 0 10" Foreground="Fuchsia"/>
-            <TextBox x:Name="price" Grid.Column="1" 
-                     Grid.Row="2" Height="30" Margin="2 40 0 10" HorizontalAlignment="Left" 
+            <TextBox x:Name="price" Grid.Column="1" Grid.Row="2" 
+                     Height="30" Margin="2 40 0 10" HorizontalAlignment="Left" 
                      FontSize="15" BorderBrush="Lime"/>
+            <Label Grid.Column="2" Grid.Row="2" Content="Грн." 
+                   Style="{StaticResource font2}"
+                   Margin="2 45 0 10"/>
         </Grid>
         
         <Grid Style="{StaticResource font3}">
-            <Button Content="Заказать" HorizontalAlignment="Center" Foreground="Black" Margin="0 20"/>
+            <Button Content="Заказать" HorizontalAlignment="Center" Foreground="Black" Margin="0 20"
+                    Click="Button_Click"/>
         </Grid>
     </StackPanel>
 

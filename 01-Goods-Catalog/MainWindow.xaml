@@ -11,13 +11,13 @@
         <Menu DockPanel.Dock="Top" Style="{StaticResource font1}" >
             <MenuItem Header="Управление категориями">
                 <MenuItem x:Name="addCategory" Header="Добавление категории" 
-                          Click="addcategory_Click"/>
+                          Click="addCategory_Click"/>
                 <MenuItem x:Name="deleteCategory" Header="Удаление категории"
                           Click="deleteCategory_Click"/>
             </MenuItem>
             <MenuItem Header="Управление производителями">
-                <MenuItem Header="Добавление производителя" Click="MenuItem_Click"/>
-                <MenuItem Header="Удаление производителя"/>
+                <MenuItem x:Name="addProducer" Header="Добавление производителя" Click="addProducer_Click"/>
+                <MenuItem x:Name="deleteProducer" Header="Удаление производителя" Click="deleteProducer_Click"/>
             </MenuItem>
             <MenuItem Header="Управление товарами">
                 <MenuItem Header="Добавление товара"/>
@@ -43,7 +43,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ComboBox x:Name="listCategory" Grid.Column="0" Margin="10 5" Foreground="Red"  SelectedIndex="0" Padding="10 5 5 5"
+            <ComboBox x:Name="listCategory" Grid.Column="0" Margin="10 5" Foreground="DarkCyan"  SelectedIndex="0" Padding="10 5 5 5"
                       ItemsSource="{Binding Source={StaticResource categoryProvider}, XPath=category}" DisplayMemberPath="@name"/>
             <ComboBox x:Name="listProducer" Grid.Column="1" Margin="10 5" Foreground="Blue"  SelectedIndex="0" Padding="10 5 5 5"
                       ItemsSource="{Binding Source={StaticResource producerProvider}, XPath=producer}" DisplayMemberPath="@name"/>
