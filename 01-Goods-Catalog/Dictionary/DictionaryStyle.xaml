@@ -31,6 +31,7 @@
     
     <Style TargetType="TextBox" BasedOn="{StaticResource font2}">
         <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="BorderBrush" Value="Lime"/>
     </Style>
     
     <Style TargetType="Button" BasedOn="{StaticResource font2}">

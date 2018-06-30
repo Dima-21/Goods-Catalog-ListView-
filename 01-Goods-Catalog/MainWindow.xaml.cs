@@ -90,5 +90,24 @@ namespace _01_Goods_Catalog
             if (delwin.ShowDialog() == true)
             { }
         }
+
+        private void addProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddProductWindow addwin = new AddProductWindow();
+            if (addwin.ShowDialog() == true)
+            { }
+        }
+
+        private void delProduct_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteProductWindow delwin = new DeleteProductWindow();
+            if (delwin.ShowDialog() == true)
+            { }
+        }
+
+        private void editProduct_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

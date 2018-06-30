@@ -20,9 +20,9 @@
                 <MenuItem x:Name="deleteProducer" Header="Удаление производителя" Click="deleteProducer_Click"/>
             </MenuItem>
             <MenuItem Header="Управление товарами">
-                <MenuItem Header="Добавление товара"/>
-                <MenuItem Header="Удаление товара"/>
-                <MenuItem Header="Изменение товара"/>
+                <MenuItem x:Name="addProduct" Header="Добавление товара" Click="addProduct_Click"/>
+                <MenuItem x:Name="delProduct" Header="Удаление товара" Click="delProduct_Click"/>
+                <MenuItem x:Name="editProduct" Header="Изменение товара" Click="editProduct_Click"/>
             </MenuItem>
         </Menu>
 
@@ -73,7 +73,7 @@
 
         <Grid x:Name="mainBox">
             <ListView x:Name="productList" Margin="5 2" Style="{StaticResource font2}" 
-                      ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product}">
+                      ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product }">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Категория" 

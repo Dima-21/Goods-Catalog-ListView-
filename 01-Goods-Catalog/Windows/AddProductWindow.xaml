@@ -1,0 +1,39 @@
+﻿<Window x:Class="_01_Goods_Catalog.AddProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_01_Goods_Catalog"
+        mc:Ignorable="d"
+        Title="AddProductWindow" Height="380" Width="340">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0">
+        <Label Content="Добавление товара" Foreground="Purple" 
+               Style="{StaticResource font3}" FontSize="20" HorizontalAlignment="Center"/>
+        <ComboBox x:Name="listProducer" Style="{StaticResource font2}" Foreground="DarkCyan"
+                  ItemsSource="{Binding Source={StaticResource producerProvider}, XPath=producer}"
+                  DisplayMemberPath="@name" SelectedIndex="0" Margin="0 15" SelectionChanged="listProducer_SelectionChanged"/>
+
+        <StackPanel Orientation="Horizontal" Margin="0 15 0 15">
+            <Label Content="Наименование:" Margin="0 0 10 0" FontSize="20"/>
+            <TextBox x:Name="name" Height="30" Width="140"
+                     IsReadOnly="False" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 15">
+            <Label Content="Цена:" Margin="0 0 10 0" FontSize="20"/>
+            <TextBox x:Name="price" Height="30"  Width="80" FontSize="20"
+                     IsReadOnly="False" VerticalAlignment="Center" Padding="0 3"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Количество:" Margin="0 0 10 0" FontSize="20"/>
+            <TextBox x:Name="num" Height="30"  Width="60" FontSize="20"
+                     IsReadOnly="False" VerticalAlignment="Center" Padding="0 3"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 45 5 5">
+            <Button x:Name="addButton" Content="Добавить" Margin="0 0 10 0"  Click="addButton_Click"/>
+            <Button x:Name="cancelButton" Content="Отменить" Click="cancelButton_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

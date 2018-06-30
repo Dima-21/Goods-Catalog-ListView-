@@ -27,24 +27,6 @@ namespace _01_Goods_Catalog
 
         const string path1 = @"..\..\Data\Producers.xml";
         const string path2 = @"..\..\Data\Products.xml";
-        //private String DeleteCategory()
-        //{
-        //    int k = listCategories.SelectedIndex;
-        //    XmlDataProvider xdp = new XmlDataProvider();
-        //    XDocument doc = XDocument.Load(path1);
-        //    XElement root = doc.Element("root");
-        //    var categories = root.Elements("category");
-
-        //    if (categories != null && k > 0)
-        //    {
-        //        var delCategory = categories.ToList()[k];
-        //        CategoryName = delCategory.Attribute("name").Value;
-        //        delCategory.Remove();
-        //        doc.Save(path1);
-        //        return delCategory.Attribute("id").Value;
-        //    }
-        //    return String.Empty;
-        //}
 
         public String ProducerName { get; set; }
         private String DeleteProducers()
