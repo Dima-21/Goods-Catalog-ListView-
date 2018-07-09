@@ -107,7 +107,9 @@ namespace _01_Goods_Catalog
 
         private void editProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            EditProductWindow edwin = new EditProductWindow();
+            if (edwin.ShowDialog() == true)
+            { }
         }
     }
 }

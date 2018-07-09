@@ -15,13 +15,28 @@ using System.Windows.Shapes;
 namespace _01_Goods_Catalog
 {
     /// <summary>
-    /// Interaction logic for EditProductWindow.xaml
+    /// Interaction logic for EditProduct.xaml
     /// </summary>
     public partial class EditProductWindow : Window
     {
         public EditProductWindow()
         {
             InitializeComponent();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Save()
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }

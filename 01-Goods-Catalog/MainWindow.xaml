@@ -73,7 +73,7 @@
 
         <Grid x:Name="mainBox">
             <ListView x:Name="productList" Margin="5 2" Style="{StaticResource font2}" 
-                      ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product }">
+                      ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Категория" 

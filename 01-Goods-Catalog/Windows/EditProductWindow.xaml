@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_01_Goods_Catalog"
         mc:Ignorable="d"
-        Title="EditProductWindow" Height="300" Width="300">
+        Title="Редактирование данных о товаре" Height="300" Width="500">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="180"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="3*" MinWidth="250"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="listProduct" Grid.Column="0" Margin="10" Style="{StaticResource font2}"
+                 ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product}" DisplayMemberPath="@name">
+            
+        </ListBox>
         
+        <GridSplitter Grid.Column="1" Width="3" 
+                                  VerticalAlignment="Stretch"
+                                  HorizontalAlignment="Center"/>
+        
+        <Grid Grid.Column="2" DataContext="{Binding ElementName=listProduct, Path=SelectedItem, Mode=TwoWay}" Style="{StaticResource font2}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Наименование:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Left" Height="30"
+                     Text="{Binding XPath=@name}" VerticalAlignment="Center" IsReadOnly="False"/>
+            <Label Content="Производитель:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="30" VerticalAlignment="Center" IsReadOnly="False" Padding="5"
+                     ItemsSource="{Binding Source={StaticResource producerProvider}, XPath=producer}" DisplayMemberPath="@name" SelectionChanged="ComboBox_SelectionChanged"/>
+            <Button Grid.Row="3" Grid.Column="0" Content="Сохранить" Width="110" Height="40" Click="Button_Click"/>
+        </Grid>
     </Grid>
 </Window>
