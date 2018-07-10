@@ -72,7 +72,7 @@
         </Grid>
 
         <Grid x:Name="mainBox">
-            <ListView x:Name="productList" Margin="5 2" Style="{StaticResource font2}" 
+            <ListView x:Name="productList" Margin="5 2" Style="{StaticResource font2}" MouseDoubleClick="productList_MouseDoubleClick"
                       ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product}">
                 <ListView.View>
                     <GridView>

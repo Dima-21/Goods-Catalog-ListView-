@@ -1,4 +1,5 @@
 ﻿
+using _01_Goods_Catalog.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace _01_Goods_Catalog
 {
@@ -110,6 +112,15 @@ namespace _01_Goods_Catalog
             EditProductWindow edwin = new EditProductWindow();
             if (edwin.ShowDialog() == true)
             { }
+        }
+
+        private void productList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            InfoProductWindow infowin = new InfoProductWindow();
+            infowin.Elem = (productList.SelectedItem as XmlElement);
+            if (infowin.ShowDialog() == true)
+            { }
+
         }
     }
 }
