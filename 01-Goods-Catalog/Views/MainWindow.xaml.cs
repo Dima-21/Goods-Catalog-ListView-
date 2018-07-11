@@ -1,4 +1,5 @@
 ﻿
+using _01_Goods_Catalog.ViewModels;
 using _01_Goods_Catalog.Windows;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 
-namespace _01_Goods_Catalog
+namespace _01_Goods_Catalog.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,9 +25,9 @@ namespace _01_Goods_Catalog
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {
-           
+        {      
             InitializeComponent();
+            this.DataContext = new ProductViewModels();
         }
 
         private void filter_Click(object sender, RoutedEventArgs e)
@@ -95,9 +96,7 @@ namespace _01_Goods_Catalog
 
         private void addProduct_Click(object sender, RoutedEventArgs e)
         {
-            AddProductWindow addwin = new AddProductWindow();
-            if (addwin.ShowDialog() == true)
-            { }
+           
         }
 
         private void delProduct_Click(object sender, RoutedEventArgs e)
