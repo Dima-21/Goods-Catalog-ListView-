@@ -73,6 +73,8 @@
     <Compile Include="Commands\Filter.cs" />
     <Compile Include="Commands\FilterCommand.cs" />
     <Compile Include="Commands\MyCommand.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Producer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="ViewModels\ProductViewModels.cs" />
     <Compile Include="Windows\EditProductWindow.xaml.cs">

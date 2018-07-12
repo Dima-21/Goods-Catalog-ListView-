@@ -19,6 +19,7 @@ namespace _01_Goods_Catalog.Commands
 
         public override void Execute(object parameter)
         {
+            WM.Select((Filter)parameter);
         }
     }
 }
