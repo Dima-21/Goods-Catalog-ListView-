@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _01_Goods_Catalog.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace _01_Goods_Catalog
         public DeleteCategoryWindow()
         {
             InitializeComponent();
+            this.DataContext = new ProductViewModels();
         }
 
         private String DeleteCategory()

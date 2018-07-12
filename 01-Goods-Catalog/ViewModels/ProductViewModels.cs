@@ -42,8 +42,8 @@ namespace _01_Goods_Catalog.ViewModels
             }
         }
 
-        private Producer selectedCategory;
-        public Producer SelectedCategory
+        private Category selectedCategory;
+        public Category SelectedCategory
         {
             get { return selectedCategory; }
             set
@@ -53,34 +53,102 @@ namespace _01_Goods_Catalog.ViewModels
             }
         }
 
-        private Filter filterProp;
-        public Filter FilterProp
+        private Filter filterParameter;
+        public Filter FilterParameter
         {
             get
             {
-                Filter f = new Filter()
-                { Category = SelectedCategory.Name, Producer = SelectedProducer.Name };
-                return f;
+                return filterParameter;
             }
             set
             {
-                filterProp = value;
-                OnPropertyChanged("FilterProp");
+                Filter f = new Filter()
+                { Category = SelectedCategory.Name, Producer = SelectedProducer.Name };
+                filterParameter = f;
+                OnPropertyChanged("FilterParameter");
             }
         }
         public ObservableCollection<Product> Products { get; set; }
         public ObservableCollection<Category> Categories { get; set; }
+        public ObservableCollection<Producer> Producers { get; set; }
+
+        private AddCategoryCommand addCategory;
+        public AddCategoryCommand AddCategory_
+        {
+            get
+            {
+                if (addCategory == null)
+                    addCategory = new AddCategoryCommand(this);
+                return addCategory;
+            }
+        }
+        private FilterCommand filter;
+        public FilterCommand Filter
+        {
+            get
+            {
+                if (filter == null)
+                    filter = new FilterCommand(this);
+                return filter;
+            }
+            set
+            {
+                filter = value;
+                OnPropertyChanged("Filter");
+            }
+        }
+
+        private AddProductCommand addProduct;
+        public AddProductCommand AddProduct_
+        {
+            get
+            {
+                if (addProduct == null)
+                    addProduct = new AddProductCommand(this);
+                return addProduct;
+            }
+            set
+            {
+                addProduct = value;
+                OnPropertyChanged("AddProduct_");
+            }
+        }
+        private DelProductCommand delProduct;
+        public DelProductCommand DelProduct_
+        {
+            get
+            {
+                if (delProduct == null)
+                    delProduct = new DelProductCommand(this);
+                return delProduct;
+            }
+            set
+            {
+                delProduct = value;
+                OnPropertyChanged("DelProduct_");
+            }
+        }
+
         public ProductViewModels()
         {
             Products = new ObservableCollection<Product>();
             Categories = new ObservableCollection<Category>();
+            Producers = new ObservableCollection<Producer>();
             doc = XDocument.Load(path1);
             LoadData();
         }
 
         public void Select(Filter f)
         {
-            var res = Products.Where(x=>x.Category == FilterProp.Category && x.Producer == FilterProp.Producer);
+            List<Product> res;
+            if (f.Category == "Все категории" && f.Producer == "Все производители")
+            {
+                LoadData();
+            }
+            if (f.Category == "Все категории" && f.Producer != "Все производители")
+                res = Products.Where(x => x.Producer == FilterParameter.Producer).ToList();
+            else
+                res = Products.Where(x => x.Category == FilterParameter.Category).ToList();
             Products.Clear();
             foreach (var prod in res)
             {
@@ -91,7 +159,7 @@ namespace _01_Goods_Catalog.ViewModels
         {
             doc = XDocument.Load(path1);
             var res = doc.Element("root").Elements("product").ToList();
-          
+
             foreach (var x in res)
             {
                 Product p = new Product()
@@ -108,40 +176,90 @@ namespace _01_Goods_Catalog.ViewModels
                 Products.Add(p);
             }
 
-            doc = XDocument.Load(path3);
-            var res1 = doc.Element("root").Elements("category").ToList();
+            doc = XDocument.Load(path2);
+            var res1 = doc.Element("root").Elements("producer").ToList();
             foreach (var x in res1)
+            {
+                Producer p = new Producer()
+                {
+                    Name = x.Attribute("name").Value,
+                    Id = x.Attribute("id").Value,
+                    Cid = x.Attribute("cid").Value
+                };
+                Producers.Add(p);
+            }
+
+            doc = XDocument.Load(path3);
+            var res2 = doc.Element("root").Elements("category").ToList();
+            foreach (var x in res2)
             {
                 Category c = new Category()
                 {
                     Name = x.Attribute("name").Value,
                     Id = x.Attribute("id").Value
                 };
-
-                    Categories.Add(c);
+                Categories.Add(c);
             }
         }
 
-
+        public void DelCategory(Category c)
+        {
+            if (c == null)
+                return;
+            c.Id = (Int32.Parse(Categories.Last().Id) + 1).ToString();
+            Categories.Add(c);
+            selectedCategory = c;
+            doc = XDocument.Load(path3);
+            XElement p = new XElement("category",
+                new XAttribute("id", c.Id),
+                new XAttribute("name", c.Name));
+            doc.Element("root").Add(p);
+            doc.Save(path3);
+        }
+        public void AddCategory(Category c)
+        {
+            if (c == null)
+                return;
+            c.Id = (Int32.Parse(Categories.Last().Id) + 1).ToString();
+            Categories.Add(c);
+            selectedCategory = c;
+            doc = XDocument.Load(path3);
+            XElement p = new XElement("category",
+                new XAttribute("id", c.Id),
+                new XAttribute("name", c.Name));
+            doc.Element("root").Add(p);
+            doc.Save(path3);
+        }
         public void AddProduct(Product p)
         {
-            AddProductWindow addwin = new AddProductWindow();
-
-            if (addwin.ShowDialog() == true)
-            {
-                string id = doc.Element("root").Elements("product").Last().Attribute("id").Value;
-                //XElement newElem = new XElement("contact",
-                //    new XAttribute("id", id),
-                //new XAttribute("name", addwin.NameProduct),
-                //new XAttribute("price", addwin.price),
-                //new XAttribute("num", addwin.num),
-                //new XAttribute("cid", addwin.Cid),
-                //new XAttribute("pid", addwin.Pid),
-                //new XAttribute("producer", addwin.NameProducer),
-                //new XAttribute("category", addwin.NameCategory));
-                //doc.Element("root").Add(newElem);
-                doc.Save(path1);
-            }
+            if (p == null)
+                return;
+            p.Id = (Int32.Parse(Products.Last().Id) + 1).ToString();
+            Products.Add(p);
+            selectedProduct = p;
+            doc = XDocument.Load(path1);
+            XElement product = new XElement("product",
+                    new XAttribute("id", p.Id),
+                      new XAttribute("name", p.Name),
+                       new XAttribute("price", p.Price),
+                        new XAttribute("num", p.Num),
+                        new XAttribute("pid", p.Pid),
+                        new XAttribute("cid", p.Cid),
+                        new XAttribute("producer", p.Producer),
+                        new XAttribute("category", p.Category));
+            doc.Element("root").Add(product);
+            doc.Save(path1);
+        }
+        public void DelProduct(Product p)
+        {
+            if (p == null)
+                return;
+            var tmp = Products.FirstOrDefault(x => x.Id == p.Id);
+            Products.Remove(tmp);
+            selectedProduct = Products.First();
+            doc = XDocument.Load(path1);           
+            doc.Element("root").Elements("product").Where(x=>x.Attribute("id").Value==p.Id).Remove();         
+            doc.Save(path1);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

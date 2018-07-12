@@ -10,11 +10,8 @@
         <Label Content="Удаление товара" Foreground="Purple" 
                Style="{StaticResource font3}" FontSize="20"/>
         <ComboBox x:Name="listProduct" Style="{StaticResource font2}" Foreground="DarkCyan"
-                  ItemsSource="{Binding Source={StaticResource productProvider}, XPath=product}"
-                  DisplayMemberPath="@name" SelectedIndex="0" Margin="0 15"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="delButton" Content="Удалить" Margin="10 10 0 0" Click="delButton_Click"/>
-            <Button x:Name="cancelButton" Content="Отменить" Margin="10 10 0 0" Click="cancelButton_Click"/>
+                  ItemsSource="{Binding Path=Products}"
+                  DisplayMemberPath="Name" SelectedIndex="0" Margin="0 15"/>
+        <Button x:Name="delButton" Content="Удалить" Margin="10 10 0 0" Click="delButton_Click"/>
         </StackPanel>
-    </StackPanel>
 </Window>

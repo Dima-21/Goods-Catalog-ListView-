@@ -11,7 +11,7 @@ namespace _01_Goods_Catalog.Models
     class Producer : INotifyPropertyChanged
     {
         private string id;
-        private string sid;
+        private string cid;
         private string name;
         public string Id
         {
@@ -33,13 +33,13 @@ namespace _01_Goods_Catalog.Models
             }
         }
 
-        public string Sid
+        public string Cid
         {
-            get { return sid; }
+            get { return cid; }
             set
             {
-                sid = value;
-                OnPropertyChanged("Sid");
+                cid = value;
+                OnPropertyChanged("Cid");
             }
         }
 

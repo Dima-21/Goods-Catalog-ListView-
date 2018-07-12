@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _01_Goods_Catalog.ViewModels;
+using _01_Goods_Catalog.DialogServise;
 
 namespace _01_Goods_Catalog.Commands
 {
-    class FilterCommand : MyCommand
+    class DelProductCommand : MyCommand
     {
-        public FilterCommand(ProductViewModels wm) : base(wm)
-        {}
+        DialogServises ds = new DialogServises();
+        public DelProductCommand(ProductViewModels wm) : base(wm)
+        {
+        }
 
         public override bool CanExecute(object parameter)
         {
@@ -19,8 +22,7 @@ namespace _01_Goods_Catalog.Commands
 
         public override void Execute(object parameter)
         {
-            Filter f = (Filter)parameter;
-            WM.Select(f);
+            WM.DelProduct(ds.OpenDelProductWindow());
         }
     }
 }

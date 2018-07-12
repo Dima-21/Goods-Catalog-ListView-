@@ -70,9 +70,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\AddCategoryCommand.cs" />
+    <Compile Include="Commands\AddProductCommand.cs" />
+    <Compile Include="Commands\DelProductCommand.cs" />
     <Compile Include="Commands\Filter.cs" />
     <Compile Include="Commands\FilterCommand.cs" />
     <Compile Include="Commands\MyCommand.cs" />
+    <Compile Include="DialogServise\DialogServises.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Producer.cs" />
     <Compile Include="Models\Product.cs" />

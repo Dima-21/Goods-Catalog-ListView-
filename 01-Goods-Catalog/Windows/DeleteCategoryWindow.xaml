@@ -9,8 +9,7 @@
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
         <Label Content="Удаление категории" />
         <ComboBox x:Name="listCategories" Foreground="Red" 
-                  ItemsSource="{Binding Source={StaticResource categoryProvider},
-                                XPath=category}" DisplayMemberPath="@name"
+                  ItemsSource="{Binding Path=Categories}" DisplayMemberPath="Name"
                                 SelectedIndex="0" FontSize="18"/>
         <Button x:Name="delButton" Content="Удалить"
                 Click="delButton_Click" Margin="0 15" FontSize="18"/>

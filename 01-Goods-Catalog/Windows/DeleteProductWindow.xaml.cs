@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _01_Goods_Catalog.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,41 +21,15 @@ namespace _01_Goods_Catalog
     /// </summary>
     public partial class DeleteProductWindow : Window
     {
-        const string path = @"..\..\Data\Products.xml";
-
         public DeleteProductWindow()
         {
             InitializeComponent();
-        }
-
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.DialogResult = true;
-        }
-
-        private void DeleteProduct()
-        {
-            XDocument doc = XDocument.Load(path);
-            XElement root = doc.Element("root");
-            var products = root.Elements("product");
-            if (listProduct.SelectedIndex != 0)
-            {
-                var delProduct = products.ToList()[listProduct.SelectedIndex];
-
-                if (delProduct != null)
-                {
-                    delProduct.Remove();
-                    doc.Save(path);
-                }
-            }
+            this.DataContext = new ProductViewModels();
         }
 
         private void delButton_Click(object sender, RoutedEventArgs e)
         {
-            DeleteProduct();
-            MessageBox.Show("Товар успешно удален", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
             this.DialogResult = true;
-
         }
     }
 }

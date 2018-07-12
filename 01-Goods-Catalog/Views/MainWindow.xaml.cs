@@ -30,27 +30,6 @@ namespace _01_Goods_Catalog.Views
             this.DataContext = new ProductViewModels();
         }
 
-        private void filter_Click(object sender, RoutedEventArgs e)
-        {
-            int k1 = listCategory.SelectedIndex;
-            int k2 = listProducer.SelectedIndex;
-
-            XmlDataProvider xdp = (XmlDataProvider)FindResource("productProvider");
-            Binding b = new Binding();
-
-            b.Source = xdp;
-            if (k1 > 0 && k2 == 0)
-                b.XPath = $"product[@cid={k1}]";
-            else if (k1 == 0 && k2 > 0)
-                b.XPath = $"product[@pid={k2}]";
-            else if(k1 > 0 && k2 > 0)
-                b.XPath = $"product[@cid={k1} and @pid={k2}]";
-            else
-                b.XPath = $"product";
-            productList.SetBinding(ListView.ItemsSourceProperty, b);
-
-        }
-
         private void order_Click(object sender, RoutedEventArgs e)
         {
             if (name.Text == String.Empty)
@@ -63,14 +42,6 @@ namespace _01_Goods_Catalog.Views
                 if (win.ShowDialog() == true)
                 {}
             }
-        }
-
-        private void addCategory_Click(object sender, RoutedEventArgs e)
-        {
-            AddCategoryWindow win = new AddCategoryWindow();
-            if(win.ShowDialog() == true)
-            { }
-            
         }
 
         private void deleteCategory_Click(object sender, RoutedEventArgs e)
@@ -92,11 +63,6 @@ namespace _01_Goods_Catalog.Views
             DeleteProducerWindow delwin = new DeleteProducerWindow();
             if (delwin.ShowDialog() == true)
             { }
-        }
-
-        private void addProduct_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
 
         private void delProduct_Click(object sender, RoutedEventArgs e)
