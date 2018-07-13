@@ -58,14 +58,13 @@ namespace _01_Goods_Catalog.ViewModels
         {
             get
             {
+                filterParameter.Category = SelectedCategory.Name;
+                filterParameter.Producer = SelectedProducer.Name;
                 return filterParameter;
             }
             set
-            {
-                Filter f = new Filter()
-                { Category = SelectedCategory.Name, Producer = SelectedProducer.Name };
-                filterParameter = f;
-                OnPropertyChanged("FilterParameter");
+            {          
+                filterParameter = value;
             }
         }
         public ObservableCollection<Product> Products { get; set; }
@@ -129,13 +128,16 @@ namespace _01_Goods_Catalog.ViewModels
             }
         }
 
+
         public ProductViewModels()
         {
             Products = new ObservableCollection<Product>();
             Categories = new ObservableCollection<Category>();
             Producers = new ObservableCollection<Producer>();
-            doc = XDocument.Load(path1);
+            doc = XDocument.Load(path1);     
             LoadData();
+            SelectedCategory = Categories.First();
+            SelectedProducer = Producers.First();
         }
 
         public void Select(Filter f)
@@ -144,6 +146,7 @@ namespace _01_Goods_Catalog.ViewModels
             if (f.Category == "Все категории" && f.Producer == "Все производители")
             {
                 LoadData();
+                return;
             }
             if (f.Category == "Все категории" && f.Producer != "Все производители")
                 res = Products.Where(x => x.Producer == FilterParameter.Producer).ToList();
@@ -201,7 +204,6 @@ namespace _01_Goods_Catalog.ViewModels
                 Categories.Add(c);
             }
         }
-
         public void DelCategory(Category c)
         {
             if (c == null)
@@ -232,6 +234,7 @@ namespace _01_Goods_Catalog.ViewModels
         }
         public void AddProduct(Product p)
         {
+            
             if (p == null)
                 return;
             p.Id = (Int32.Parse(Products.Last().Id) + 1).ToString();

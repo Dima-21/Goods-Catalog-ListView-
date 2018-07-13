@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using System.Windows.Forms;
+using System.IO;
 
 namespace _01_Goods_Catalog
 {
@@ -29,6 +31,8 @@ namespace _01_Goods_Catalog
             this.DataContext = new ProductViewModels();
         }
 
+        public string Image { get; set; }
+
         private bool Check()
         {
             if (listCategory.SelectedIndex == 0 && listProducer.SelectedIndex == 0 && name.Text == String.Empty &&
@@ -38,10 +42,25 @@ namespace _01_Goods_Catalog
         }
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-           if(!Check())
-                MessageBox.Show("Заполните все поля", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (!Check())
+                System.Windows.MessageBox.Show("Заполните все поля", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             else
                 this.DialogResult = true;
+        }
+
+        private void addImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            try
+            {
+                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Image = ofd.FileName;
+                }
+
+            }
+            catch (Exception ex)
+            {}
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using _01_Goods_Catalog.Models;
 using _01_Goods_Catalog.ViewModels;
 using _01_Goods_Catalog.Windows;
 using System;
@@ -81,11 +82,9 @@ namespace _01_Goods_Catalog.Views
 
         private void productList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            InfoProductWindow infowin = new InfoProductWindow();
-            infowin.Elem = (productList.SelectedItem as XmlElement);
-            if (infowin.ShowDialog() == true)
-            { }
-
+            var Vm = (DataContext as ProductViewModels);
+            Product p = (DataContext as ProductViewModels).SelectedProduct;
+            
         }
     }
 }

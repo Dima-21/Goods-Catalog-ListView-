@@ -13,20 +13,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"  VerticalAlignment="Center" Orientation="Horizontal">
             <StackPanel Width="300">
-            <Image Source="/Image/image1.ico" Width="100"/>
-            <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="10" Height="100">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid  Columns="8"/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-                <Image Source="/Image/image.png" Width="100"/>
-                <Image Source="/Image/image.png" Width="100"/>
-                <Image Source="/Image/image.png" Width="100"/>
-                <Image Source="/Image/image.png" Width="100"/>
-            </ListBox>
+                <Image Source="{Binding Path=SelectedProduct}" Width="100"/>
             </StackPanel>
-            <Grid DockPanel.Dock="Right">
+            <Grid DockPanel.Dock="Right" DataContext="{Binding Path=SelectedProduct}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition/>
@@ -38,7 +27,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Content="Наименование:" Grid.Row="0" Grid.Column="0"/>
-                <TextBox x:Name="name" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top"/>
+                <TextBox x:Name="name" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Text="Name"/>
                 <Label Content="Производитель:" Grid.Row="1" Grid.Column="0"/>
                 <TextBox x:Name="producer" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"/>
                 <Label Content="Цена:" Grid.Row="2" Grid.Column="0"/>

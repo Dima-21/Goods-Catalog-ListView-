@@ -1,5 +1,6 @@
 ﻿using _01_Goods_Catalog.Models;
 using _01_Goods_Catalog.ViewModels;
+using _01_Goods_Catalog.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,8 @@ namespace _01_Goods_Catalog.DialogServise
                     Category = (win.listCategory.SelectedItem as Category).Name,
                     Cid = (win.listCategory.SelectedItem as Category).Id,
                     Producer = (win.listProducer.SelectedItem as Producer).Name,
-                    Pid = (win.listProducer.SelectedItem as Producer).Id
+                    Pid = (win.listProducer.SelectedItem as Producer).Id,
+                  Image = win.Image == "" ? "Image/image1.ico" : win.Image
                 };
                 return p;
             }
@@ -55,6 +57,8 @@ namespace _01_Goods_Catalog.DialogServise
             }
             return null;
         }
+
+
     }
 }
 

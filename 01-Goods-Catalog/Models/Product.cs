@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -18,12 +19,27 @@ namespace _01_Goods_Catalog.Models
         private string cid;
         private string producer;
         private string category;
+        private string image;
+
+        public string Image
+        {
+            get { return image; }
+            set
+            {
+                image = value;
+                OnPropertyChanged("Image");
+            }
+        }
 
 
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
         }
         public string Id
         {
@@ -31,7 +47,7 @@ namespace _01_Goods_Catalog.Models
             set
             {
                 id = value;
-                OnPropertyChanged("Name");
+                OnPropertyChanged("Id");
             }
         }
         public string Price

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <product id="1" name="Samsung J5" price="3800" num="50" pid="1" cid="1" producer="Samsung" category="Смартфоны" />
-  <product id="2" name="Samsung J3" price="3600" num="34" pid="1" cid="1" producer="Samsung" category="Смартфоны" />
-  <product id="3" name="Asus X55A" price="9600" num="49" pid="2" cid="2" producer="Asus" category="Ноутбуки" />
-  <product id="4" name="Asus K52" price="1200" num="45" pid="2" cid="2" producer="Asus" category="Ноутбуки" />
-  <product id="5" name="Meizu M5" price="4500" num="1" pid="3" cid="1" producer="Meizu" category="Смартфоны" />
-  <product id="6" name="Meizu M3" price="6400" num="50" pid="3" cid="1" producer="Meizu" category="Смартфоны" />
-  <product id="7" name="Lenovo A5500" price="12030" num="50" pid="4" cid="2" producer="Lenovo" category="Ноутбуки" />
-  <product id="8" name="Lenovo A4500" price="16300" num="50" pid="4" cid="2" producer="Lenovo" category="Ноутбуки" />
-  <product id="10" name="Bluedio T2" price="815" num="13" pid="5" cid="3" producer="Bluedio" category="Аксессуары" />
+  <product id="1" name="Samsung J5" price="3800" num="50" pid="1" cid="1" producer="Samsung" category="Смартфоны" image="Image/image1.ico"/>
+  <product id="2" name="Samsung J3" price="3600" num="34" pid="1" cid="1" producer="Samsung" category="Смартфоны" image="Image/image1.ico"/>
+  <product id="3" name="Asus X55A" price="9600" num="49" pid="2" cid="2" producer="Asus" category="Ноутбуки" image="Image/image1.ico"/>
+  <product id="4" name="Asus K52" price="1200" num="45" pid="2" cid="2" producer="Asus" category="Ноутбуки" image="Image/image1.ico"/>
+  <product id="5" name="Meizu M5" price="4500" num="1" pid="3" cid="1" producer="Meizu" category="Смартфоны" image="Image/image1.ico"/>
+  <product id="6" name="Meizu M3" price="6400" num="50" pid="3" cid="1" producer="Meizu" category="Смартфоны" image="Image/image1.ico"/>
+  <product id="7" name="Lenovo A5500" price="12030" num="50" pid="4" cid="2" producer="Lenovo" category="Ноутбуки" image="Image/image1.ico"/>
+  <product id="8" name="Lenovo A4500" price="16300" num="50" pid="4" cid="2" producer="Lenovo" category="Ноутбуки" image="Image/image1.ico"/>
+  <product id="10" name="Bluedio T2" price="815" num="13" pid="5" cid="3" producer="Bluedio" category="Аксессуары" image="Image/image1.ico"/>
 </root>

@@ -5,37 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_01_Goods_Catalog"
         mc:Ignorable="d"
-        Title="AddProductWindow" Height="500" Width="400">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0">
-        <Label Content="Добавление товара" Foreground="Purple" 
+        Title="AddProductWindow" Height="500" Width="500">
+    <StackPanel Orientation="Horizontal">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0">
+
+            <Label Content="Добавление товара" Foreground="Purple" 
                Style="{StaticResource font3}" FontSize="20" HorizontalAlignment="Center"/>
-        <Label Content="Категория:" Margin="0 5" FontSize="20"/>
-        <ComboBox x:Name="listCategory" Style="{StaticResource font2}" Foreground="DarkCyan"
+            <Label Content="Категория:" Margin="0 5" FontSize="20"/>
+            <ComboBox x:Name="listCategory" Style="{StaticResource font2}" Foreground="DarkCyan"
                   ItemsSource="{Binding Path=Categories}"
-                  DisplayMemberPath="Name" SelectedIndex="0" Margin="0 15" SelectedItem="SelectCategory"/>
-        <Label Content="Производитель:" Margin="0 5" FontSize="20"/>
-        <ComboBox x:Name="listProducer" Style="{StaticResource font2}" Foreground="DarkCyan"
+                  DisplayMemberPath="Name" SelectedIndex="0" Margin="0 2 0 10" SelectedItem="SelectCategory"/>
+            <Label Content="Производитель:" Margin="0 5" FontSize="20"/>
+            <ComboBox x:Name="listProducer" Style="{StaticResource font2}" Foreground="DarkCyan"
                   ItemsSource="{Binding Path=Producers}"
-                  DisplayMemberPath="Name" SelectedIndex="0" Margin="0 15" SelectedItem="SelectProducer"/>
+                  DisplayMemberPath="Name" SelectedIndex="0" Margin="0 2 0 10" SelectedItem="SelectProducer"/>
 
-        <StackPanel Orientation="Horizontal" Margin="0 15 0 15">
-            <Label Content="Наименование:" Margin="0 0 10 0" FontSize="20"/>
-            <TextBox x:Name="name" Height="30" Width="140"
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 15">
+                <Label Content="Наименование:" Margin="0 0 10 0" FontSize="20"/>
+                <TextBox x:Name="name" Height="30" Width="140"
                      IsReadOnly="False" HorizontalAlignment="Center"/>
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="0 0 0 15">
-            <Label Content="Цена:" Margin="0 0 10 0" FontSize="20"/>
-            <TextBox x:Name="price" Height="30"  Width="80" FontSize="20"
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 15">
+                <Label Content="Цена:" Margin="0 0 10 0" FontSize="20"/>
+                <TextBox x:Name="price" Height="30"  Width="80" FontSize="20"
                      IsReadOnly="False" VerticalAlignment="Center" Padding="0 3"/>
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Количество:" Margin="0 0 10 0" FontSize="20"/>
-            <TextBox x:Name="num" Height="30"  Width="60" FontSize="20"
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Количество:" Margin="0 0 10 0" FontSize="20"/>
+                <TextBox x:Name="num" Height="30"  Width="60" FontSize="20"
                      IsReadOnly="False" VerticalAlignment="Center" Padding="0 3"/>
+            </StackPanel>
+            <Button x:Name="addButton" Content="Добавить" Margin="0 10"  Click="addButton_Click"/>
         </StackPanel>
-        <Button x:Name="addButton" Content="Добавить" Margin="0 10"  Click="addButton_Click"/>
-
+        <Grid>
+            <Button x:Name="addImage" VerticalAlignment="Top" Margin="20 40" Width="100" Height="100" Click="addImage_Click">
+                <Image Source="/Image/addimage.ico" />
+            </Button>
+        </Grid>
     </StackPanel>
 </Window>
